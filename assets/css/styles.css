@@ -1,0 +1,93 @@
+body {
+    margin: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header {
+    background-color: #334756;
+    padding: 2rem;
+}
+
+main {
+    padding: 2rem 5rem 0.5rem 5rem;
+    text-align: center;
+    background-color: #082032;
+    color: #ff4d29ce;
+}
+
+main h3 {
+    color: #2E8A99;
+}
+
+main p {
+    color: #84A7A1;
+}
+
+button {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 1rem;
+    background-color: #334756;
+    border: none;
+    margin: 1.5rem;
+    transition: opacity 0.5s;
+    opacity: 0.7;
+}
+button:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+#rockBtn img {
+    object-fit: cover;
+    object-position: 0%;
+    width: 150px;
+    height: 200px;
+}
+#paperBtn img {
+    object-fit: cover;
+    object-position: 100%;
+    width: 180px;
+    height: 200px;
+}
+#ScissorsBtn img {
+    object-fit: cover;
+    object-position: 45%;
+    width: 140px;
+    height: 200px;
+}
+
+.title {
+    margin: 0px;
+    text-align: center;
+    color: rgb(65, 112, 153);
+    font-family: monospace;
+    font-size: 3rem;
+}
+
+footer{
+    background-color: #334756;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0.5rem;
+}
+footer a {
+    color: black;
+    height: 24px;
+    font-size: 1.5rem;
+}
+
+.game-info {
+    display: flex;
+    justify-content: center;
+}
+
+.message{
+    padding: 0 3rem;
+    border-left: 0.5rem ridge #1F6E8C;
+}
+.scores {
+    padding: 0 3rem 0 3rem;
+}
