@@ -1,5 +1,5 @@
-# Popular game "Rock Paper Scissors". A project by TheOdinProject
+# Popular game 🎮 "Rock Paper Scissors". A project by TheOdinProject
 
-**Live preview** ->
+**Live preview** -> https://kfassolb.github.io/Rock-Paper-Scissors/
 
 ![screenshot](/assets/img/screenshot-projectfinish.png)
