@@ -12,6 +12,8 @@ let compPoint = 0;
 let message = "";
 let round = 0;
 let resultMessage = "";
+let playerEmoji = "";
+let compEmoji = "";
 
 function getComputerChoice() {
     let num = Math.floor(Math.random() * 3);
@@ -29,30 +31,47 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection == "rock" && computerSelection == "paper"){
-        message = "You lose! Paper beats Rock";
-        compPoint++;
-    }else if (playerSelection == "rock" && computerSelection == "scissors"){
-        message = "You win! Rock beats scissors";
-        playerPoint++;
-    }else if (playerSelection == "paper" && computerSelection == "rock"){
-        message = "You win! Paper beats Rock";
-        playerPoint++;
-    }else if(playerSelection == "paper" && computerSelection == "scissors"){
-        message = "You lose! Scissors beats Paper";
-        compPoint++;
-    }else if (playerSelection == "scissors" && computerSelection == "rock"){ 
-        message = "You lose! Rock beats Scissors";
-        compPoint++;
-    }else if (playerSelection == "scissors" && computerSelection == "paper"){
-        message = "You win! Scissors beats Paper";
-        playerPoint++;
-    }else{
-        message = "Tie! Nobody wins";
+    switch (playerSelection) {
+        case "rock":
+            playerEmoji = "✊";
+            break;
+        case "paper":
+            playerEmoji = "✋";
+            break;
+        default:
+            playerEmoji = "✌";
+            break;
     }
-    playerScore.textContent = `Player: ${playerPoint}`;
-    computerScore.textContent = `Computer: ${compPoint}`;
+    switch (computerSelection) {
+        case "rock":
+            compEmoji = "✊";
+            break;
+        case "paper":
+            compEmoji = "✋";
+            break;
+        default:
+            compEmoji = "✌";
+            break;
+    }
+    if(playerSelection != computerSelection){
+        if(playerSelection == "rock" && computerSelection == "scissors" ||
+            playerSelection == "paper" && computerSelection == "rock" ||
+            playerSelection == "scissors" && computerSelection == "paper"){
+                message = `You win! ${playerSelection} beats ${computerSelection}`;
+                playerPoint++;
+        }else{
+            message = `You lose! ${computerSelection} beats ${playerSelection}`;
+            compPoint++;
+        }
+    }
+    else {
+        message = "Tie! Nobody wins"
+    }
+    
+    playerScore.textContent = `${playerEmoji} Player: ${playerPoint}`;
+    computerScore.textContent = `${compEmoji} Computer: ${compPoint}`;
     roundMessage.textContent = `Round ${++round}: ${message}`;
+
     if(round == 5) {
         gameResult.textContent = `Final score: ${resultFinal()}`;
         paperBtn.style.pointerEvents = "none";
@@ -63,7 +82,7 @@ function playRound(playerSelection, computerSelection) {
 
 rockBtn.addEventListener('click', () => playRound('rock',getComputerChoice()));
 paperBtn.addEventListener('click', () => playRound('paper',getComputerChoice()));
-ScissorsBtn.addEventListener('click', () => playRound('Scissors',getComputerChoice()));
+ScissorsBtn.addEventListener('click', () => playRound('scissors',getComputerChoice()));
 
 
 function resultFinal() {
@@ -75,5 +94,4 @@ function resultFinal() {
     else{
         return "Draw";
     }
-    rockBtn.addEventListener('')
 }
